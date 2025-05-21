@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronPulse Gym - Video Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
+        
+        #video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1; /* Place behind other content */
+            object-fit: cover; /* Ensure video covers the whole screen */
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1; /* Place content above the video */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background -->
+    <video id="video-background" autoplay loop muted>
+        <source src="your-video.mp4" type="video/mp4">
+        <source src="your-video.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Content Overlay -->
+    <div class="content">
+        <h1>Welcome to IronPulse Gym</h1>
+        <p>Strength. Power. Endurance.</p>
+    </div>
+</body>
+</html>
