@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">➕ Add New Trainer - FitLife Gym</div>
+
+  <form action="insert-trainer.php" method="POST">
+    <h2>Trainer Admission Form</h2>
+    
+    <label>Full Name</label>
+    <input type="text" name="trainer_name" required>
+
+    <label>Age</label>
+    <input type="number" name="trainer_age" required>
+
+    <label>Gender</label>
+    <select name="trainer_gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Phone Number</label>
+    <input type="text" name="trainer_phone" required>
+
+    <label>Email</label>
+    <input type="email" name="trainer_email" required>
+
+    <label>Specialization</label>
+    <input type="text" name="trainer_specialization" required>
+
+    <button type="submit">Add Trainer</button>
+  </form>
+</body>
+</html>

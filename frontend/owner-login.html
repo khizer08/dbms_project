@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Owner Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+ 
+  <script>
+    function handleLogin(event) {
+      event.preventDefault(); // Stop form from submitting
+
+      const username = document.getElementsByName('username')[0].value;
+      const password = document.getElementsByName('password')[0].value;
+
+      // Simple hardcoded check
+      if (username === "owner" && password === "admin123") {
+        window.location.href = "owner-dashboard.html"; // Redirect on success
+      } else {
+        alert("Invalid username or password!");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="login-form">
+    <h2>Owner Login</h2>
+    <form onsubmit="handleLogin(event)">
+      <input type="text" name="username" placeholder="Username" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</body>
+</html>
