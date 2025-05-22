@@ -2,48 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Add New Member</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Member - IronPulse Gym</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="header">➕ Add New Member - FitLife Gym</div>
+  <div class="header">
+    <i class="fas fa-user-plus"></i>
+    <span>Add New Member - IronPulse Gym</span>
+  </div>
 
-  <form action="insert-member.php" method="POST">
-    <h2>Member Admission Form</h2>
-    
-    <label>Full Name</label>
-    <input type="text" name="member_name" required>
+  <div class="form-container">
+    <form id="memberForm" action="insert-member.php" method="POST">
+      <h2><i class="fas fa-user-edit"></i> Member Admission Form</h2>
+      
+      <div class="form-group">
+        <label for="member_name">Full Name</label>
+        <input type="text" id="member_name" name="member_name" required>
+      </div>
 
-    <label>Age</label>
-    <input type="number" name="member_age" required>
+      <div class="form-group">
+        <label for="member_age">Age</label>
+        <input type="number" id="member_age" name="member_age" min="16" max="100" required>
+      </div>
 
-    <label>Gender</label>
-    <select name="member_gender" required>
-      <option value="">Select</option>
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
-    </select>
+      <div class="form-group">
+        <label for="member_gender">Gender</label>
+        <select id="member_gender" name="member_gender" required>
+          <option value="">Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
-    <label>Phone Number</label>
-    <input type="text" name="member_phone" required>
+      <div class="form-group">
+        <label for="member_phone">Phone Number</label>
+        <input type="tel" id="member_phone" name="member_phone" required>
+      </div>
 
-    <label>Email</label>
-    <input type="email" name="member_email" required>
+      <div class="form-group">
+        <label for="member_email">Email</label>
+        <input type="email" id="member_email" name="member_email" required>
+      </div>
 
-    <label>Membership Plan</label>
-    <select name="membership_plan" required>
-      <option value="">Select</option>
-      <option value="Monthly">Monthly</option>
-      <option value="Quarterly">Quarterly</option>
-      <option value="Yearly">Yearly</option>
-    </select>
+      <div class="form-group">
+        <label for="membership_plan">Membership Plan</label>
+        <select id="membership_plan" name="membership_plan" required>
+          <option value="">Select</option>
+          <option value="Monthly">Monthly ($50)</option>
+          <option value="Quarterly">Quarterly ($135 - Save $15)</option>
+          <option value="Yearly">Yearly ($480 - Save $120)</option>
+        </select>
+      </div>
 
-    <label>Assign Trainer (Optional)</label>
-    <input type="text" name="assigned_trainer">
+      <div class="form-group">
+        <label for="assigned_trainer">Assign Trainer (Optional)</label>
+        <select id="assigned_trainer" name="assigned_trainer">
+          <option value="">Select Trainer</option>
+          <!-- Options will be populated by JavaScript -->
+        </select>
+      </div>
 
-    <button type="submit">Add Member</button>
-  </form>
+      <div class="form-actions">
+        <button type="button" id="resetBtn" class="btn secondary">Reset</button>
+        <button type="submit" id="submitBtn" class="btn primary">Add Member</button>
+      </div>
+
+      <div id="formMessage" class="form-message"></div>
+    </form>
+  </div>
+
+  <script src="member-form.js"></script>
 </body>
 </html>

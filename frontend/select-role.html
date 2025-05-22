@@ -2,16 +2,187 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Select Role</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IronPulse Gym | Select Your Role</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff3e3e;
+      --secondary: #2b2d42;
+      --accent: #f8c537;
+      --light: #f8f9fa;
+      --dark: #212529;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--secondary);
+    }
+    
+    .role-selection {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      padding: 3rem 4rem;
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      transform: translateY(-20px);
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .role-selection h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
+    }
+    
+    .role-selection h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .role-options {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+    
+    .role-btn {
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+      color: white;
+    }
+    
+    .role-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .role-btn:hover::before {
+      transform: translateX(0);
+    }
+    
+    .role-btn i {
+      font-size: 1.2rem;
+    }
+    
+    .owner-btn {
+      background: linear-gradient(135deg, var(--secondary), #1a1a2e);
+      box-shadow: 0 5px 15px rgba(43, 45, 66, 0.3);
+    }
+    
+    .member-btn {
+      background: linear-gradient(135deg, var(--primary), #ff1e1e);
+      box-shadow: 0 5px 15px rgba(255, 62, 62, 0.3);
+    }
+    
+    .trainer-btn {
+      background: linear-gradient(135deg, var(--accent), #e6b327);
+      box-shadow: 0 5px 15px rgba(248, 197, 55, 0.3);
+    }
+    
+    .role-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .back-btn {
+      margin-top: 2rem;
+      display: inline-block;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .back-btn:hover {
+      color: var(--primary);
+    }
+    
+    @media (max-width: 480px) {
+      .role-selection {
+        padding: 2rem;
+      }
+      
+      .role-selection h2 {
+        font-size: 1.6rem;
+      }
+      
+      .role-btn {
+        padding: 12px 25px;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="role-selection">
-    <h2>Login As:</h2>
-    <button onclick="location.href='owner-login.html'">Owner</button>
-    <button onclick="location.href='member-login.html'">Member</button>
-    <button onclick="location.href='trainer-login.html'">Trainer</button>
+    <h2>Continue As</h2>
+    <div class="role-options">
+      <button class="role-btn owner-btn" onclick="location.href='owner-login.html'">
+        <i class="fas fa-user-shield"></i> Owner
+      </button>
+      <button class="role-btn member-btn" onclick="location.href='member-login.html'">
+        <i class="fas fa-user"></i> Member
+      </button>
+      <button class="role-btn trainer-btn" onclick="location.href='trainer-login.html'">
+        <i class="fas fa-dumbbell"></i> Trainer
+      </button>
+    </div>
+    <a href="index.html" class="back-btn">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
   </div>
 </body>
 </html>
