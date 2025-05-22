@@ -2,17 +2,278 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Welcome to IronPulse Gym</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IronPulse Gym | Transform Your Fitness Journey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff3e3e;
+      --secondary: #f4f5f7;
+      --accent: #f8c537;
+      --light: #f8f9fa;
+      --dark: #e70d1c;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles  */
+    header {
+      padding: 2rem 0;
+      text-align: center;
+      border-radius: 0 0 20px 20px;
+      position: relative;
+      overflow: hidden;
+    } 
+
+    
+    .logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s;
+      position: relative;
+      z-index: 1;
+      border-radius: 50%;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(244, 242, 242, 0.3);
+    }
+    
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+      font-weight: 300;
+    }
+    
+    /* Main Content */
+    .hero {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    
+    .hero h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .btn {
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      box-shadow: 0 5px 15px rgba(237, 234, 234, 0.944);
+    }
+    
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(246, 243, 243, 0.985);
+    }
+    
+    /* Features Section */
+    .features {
+      padding: 4rem 0;
+    }
+    
+    .features h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 3rem;
+    }
+    
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      border-radius: 15px;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s;
+      border: 1px solid rgba(11, 11, 12, 0.05);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: rgb(28, 25, 25);
+      color: rgb(240, 234, 234);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .social-links a {
+      color: rgb(238, 234, 234);
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+    
+    .social-links a:hover {
+      color: var(--accent);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+  </style>
 </head>
 <body>
+   <video autoplay muted loop id="bg-video">
+    <source src="video/video1.mp4" type="video/mp4">
+  </video>
   <div class="container">
     <header>
-      <img src="images/dbms2.png" alt="IronPulse Gym Logo" class="logo" onclick="window.location.href='select-role.html'">
+      <img src="images/logo.png" alt="IronPulse Gym Logo" class="logo" onclick="window.location.href='select-role.html'">
       <h1>IronPulse Gym</h1>
-      <p>Your fitness journey starts here!</p>
+      <p>Transform your body, energize your life</p>
+      
     </header>
+    
+    <section class="hero">
+      <h2>Your Fitness Journey Starts Here</h2>
+      <p>Experience world-class training facilities with certified coaches and personalized workout plans</p>
+    </section>
+    
+    <section class="features">
+      <h2>Why Choose IronPulse?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <h3>Premium Equipment</h3>
+          <p>State-of-the-art machines and free weights for all your training needs</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h3>Expert Trainers</h3>
+          <p>Certified coaches to guide you through every step of your fitness journey</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <h3>Flexible Plans</h3>
+          <p>Membership options tailored to fit your schedule and budget</p>
+        </div>
+      </div>
+    </section>
+    
   </div>
+  <footer>
+    <p>© 2025 IronPulse Gym. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>Contact us: info@ironpulse.com | +91 9876543210</p>
+  </footer>
 </body>
 </html>
