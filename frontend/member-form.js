@@ -112,9 +112,20 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
             
             // Send data to server
-            fetch('insert-member.php', {
+            fetch('/api/members', {
                 method: 'POST',
-                body: new FormData(form)
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: document.getElementById('member_name').value,
+                    age: document.getElementById('member_age').value,
+                    gender: document.getElementById('member_gender').value,
+                    phone: document.getElementById('member_phone').value,
+                    email: document.getElementById('member_email').value,
+                    membership_plan: document.getElementById('membership_plan').value,
+                    assigned_trainer: document.getElementById('assigned_trainer').value
+                })
             })
             .then(response => response.json())
             .then(data => {
